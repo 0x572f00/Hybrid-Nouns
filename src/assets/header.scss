@@ -1,0 +1,49 @@
+header {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    top: 0;
+    max-height: 45px;
+    line-height: 45px;
+    z-index: 99999;
+    a {
+        position: relative;
+        display: block;
+        height: 45px;
+    }
+    div {
+      &:first-child {
+        padding-left: 2rem;
+      }
+    }
+    div:nth-child(2), div:nth-child(4) {
+      text-align: center;
+    }
+    .modeSwitch {
+        height: 45px;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        img, svg {
+            position: relative;
+            width: 32px;
+        }
+    }
+  }
+
+  .noggles {
+    height: 32px;
+    width: auto;
+    position: absolute;
+    top: 6.5px;
+    left: 50%;
+    transform: translate(-56.9%);
+    path {
+        transition: all 0.5s ease-in-out;
+    }
+  }

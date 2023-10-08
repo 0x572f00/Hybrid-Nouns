@@ -1,0 +1,78 @@
+.darkmode--activated {
+
+    * {
+        color: rgb(228, 231, 231);
+    }
+
+    background: #000;
+
+    // @media (max-width: 640px) {
+    //     background: rgb(39, 42, 42);
+    // }
+
+    h1,
+    h2,
+    a,
+    button {
+        color: #fff;
+
+        div {
+            color: #fff;
+        }
+    }
+
+    .loading-container {
+        background: rgb(39, 42, 42);
+    }
+
+    .traits .small {
+        color: rgb(148, 158, 158);
+    }
+
+    .trait {
+        border: 1px solid rgb(39, 42, 42);
+        background: none !important;
+    }
+
+    #previousLink,
+    #nextLink {
+        background-color: rgb(20,20,20);
+        &:hover {
+            background: rgb(39, 42, 42);
+        }
+
+        a {
+            color: #fff;
+            &:hover {
+                color: #000;
+            }
+        }
+    }
+
+    #playground-left:before, #playground-right:before {
+        background: #000
+    }
+
+    #middle-loading-container .l, #middle-loading-container .r {
+        background: rgb(39, 42, 42);
+    }
+
+    #middle-loader,
+    #left-loader {
+        background: #000;
+        &.active {
+            background: #000;
+        }
+    }
+
+    .loading-container {
+        background: rgb(39, 42, 42);
+    }
+
+    .nouns-info .info h3, .timer {
+        color: #fff;
+    }
+
+
+
+}

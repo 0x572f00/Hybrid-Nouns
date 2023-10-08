@@ -1,0 +1,13 @@
+mogrify             \
+  -resize 80x80     \
+  -background white \
+  -gravity center   \
+  -extent 80x80     \
+  -format jpg       \
+  -quality 75       \
+  -path thumbs      \
+   *.jpg
+
+
+mogrify -resize 2400x2400 *.png
+mogrify -resize 300x300 *.png

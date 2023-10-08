@@ -1,0 +1,22 @@
+diff --git a/node_modules/@nouns/sdk/dist/image/png-collection-encoder.js b/node_modules/@nouns/sdk/dist/image/png-collection-encoder.js
+index bcb4cfb..88d1b1d 100644
+--- a/node_modules/@nouns/sdk/dist/image/png-collection-encoder.js
++++ b/node_modules/@nouns/sdk/dist/image/png-collection-encoder.js
+@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
+ };
+ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.PNGCollectionEncoder = void 0;
+-const fs_1 = require("fs");
++// const fs_1 = require("fs");
+ const image_1 = require("./image");
+ /**
+  * A class used to convert PNG images into the following RLE format:
+@@ -59,7 +59,7 @@ class PNGCollectionEncoder {
+      */
+     writeToFile(outputFile = 'encoded-images.json') {
+         return __awaiter(this, void 0, void 0, function* () {
+-            yield fs_1.promises.writeFile(outputFile, JSON.stringify(this.data, null, 2));
++            // yield fs_1.promises.writeFile(outputFile, JSON.stringify(this.data, null, 2));
+         });
+     }
+     /**

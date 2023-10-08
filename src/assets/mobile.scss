@@ -1,0 +1,188 @@
+@media (max-width: 1240px) {
+    #hybrid {
+        max-width: calc(100% - 30px);
+    }
+}
+
+@media (max-width: 960px) {
+    header {
+            div:nth-child(1), div:nth-child(3) {
+                opacity: 0!important;
+            }
+    }
+}
+
+
+
+
+
+@media (max-width: 680px) {
+    html, body, #root, #page, .app {
+        overflow-y: auto;
+    }
+
+    body {
+        font-size:13px;
+    }
+
+    header {
+        grid-template-columns: 1fr 1fr;
+        text-align: center;
+        .noggles {
+            top: 6.5px;
+            transform: translateX(-50%);
+            left: 50%;
+        }
+        .modeSwitch {
+            transform: none;
+            img, svg {
+                transform: none;
+            }
+        }
+        div:nth-child(1), div:nth-child(3) {
+            display: none;
+        }
+    }
+
+    header div:first-child, header span:first-child, .tagline div:first-child, .tagline span:first-child {
+        // padding-left: 15px;
+    }
+
+    .nouns-info {
+        position: relative;
+        grid-template-columns: 1fr;
+        #hybrid {
+            // background: #fff;
+            position: relative;
+            top: unset;
+            left: unset;
+            transform: none;
+            max-width: unset;
+        }
+        .info {
+            padding: 0 8px;
+            .h2-container {
+                line-height: 65px;
+                position: relative;
+                transform: none;
+                margin-top: calc(45px + 0.8rem);
+            }
+            .c {
+                position: relative;
+                margin-top: .8rem;
+                top: unset;
+                transform: none;
+            }
+        }
+    }
+
+    .playground {
+        // grid-template-columns: 1fr;
+    }
+
+    #playground-left {
+        margin-bottom: .8rem;
+    }
+
+    #playground-right {
+        margin-bottom: 22.5px;
+    }
+
+    .footer-ui {
+        bottom: unset;
+        // top: calc(50vh + 90px - 0.4rem);
+        top: 0;
+        height: 45px;
+        line-height: 45px;
+        grid-template-columns: 1fr;
+        @include aspect-ratio(1,1);
+        position: absolute;
+        top: 45px;
+        &:before {
+            pointer-events: none;
+        }
+        div:nth-child(1) {
+            bottom: 0;
+        }
+        div:nth-child(4) {
+            @include aspect-ratio(1,1);
+            &:before {
+                pointer-events: none;
+            }
+        }
+        div:nth-child(2), div:nth-child(4) {
+            display: none;
+        }
+        div:nth-child(3) {
+            transform: translateY(-100%);
+            width: fit-content;
+        }
+        div {
+            padding: 0 8px;
+        }
+    }
+
+    #saveJpg {
+        position: absolute;
+        right: 0;
+        margin-right: 8px;
+    }
+
+    // #previousLink.disabled, #nextLink.disabled {
+    //     background: color(srgb 1 1 1 / 0.8);
+    // }
+
+    #explore {
+        // grid-template-columns: repeat(30, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        width: calc(100% - 30px);
+        padding: 50vh 15px 0;
+        gap: 15px;
+        background: #fff;
+        a {
+            text-decoration: none;
+            span {
+                text-align: center;
+                display: block;
+                line-height: 1.8;
+                text-transform: uppercase;
+                font-weight: 700;
+            }
+        }
+    }
+
+    #hybrid {
+        // padding: 0 0 0 0.8rem;
+        display: block;
+        margin: calc(45px) 0;
+    }
+
+    #hybrid #canvas {
+        border-radius: 0;
+    }
+
+    .traits img, .traits .bg, .trait {
+        width: 32px;
+        height: 32px;
+    }
+
+    .loading-container {
+        padding: 0 15px;
+        width: calc(100% - 30px);
+        span {
+            font-size: 28px;
+        }
+        .dot:nth-child(1) {
+            margin-left: 6px;
+        }
+        .dot:nth-child(2) {
+            margin-left: 12px;
+        }
+        .dot:nth-child(3) {
+            animation: dot-3 1s infinite;
+            margin-left: 18px;
+        }
+    }
+
+
+}

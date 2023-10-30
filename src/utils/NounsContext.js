@@ -8,13 +8,13 @@ import { componentToHex, rgbToHex, extractColors, png } from '../utils/utils.js'
 const NounsContext = createContext();
 
 const settings = {
-  apiKey: process.env.ALCHEMY_API_KEY,
-  network: Network.ETH_MAINNET,
+  apiKey: process.env.REACT_APP_ALCHEMY_API_KEY,
+  network: Network.ETH_MAINNET
 };
 
 const alchemy = new Alchemy(settings);
-const nounsABI = require("../components/nouns.json");
-const nounsContractAddress = "0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03"; // Address of the nouns contract
+const nounsABI = require("../abi/nouns.json");
+const nounsContractAddress = "0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03";
 
 export const useNounsContext = () => {
   return useContext(NounsContext);
@@ -44,7 +44,6 @@ export const extractColorsFromSVG = async (parts, background) => {
 };
 
 export const NounsProvider = ({ children }) => {
-  const [init, setInit] = useState(false);
   const [allTraitsFetched, setAllTraitsFetched] = useState(false);
   const [totalSupply, setTotalSupply] = useState(0);
   const [nounData, setNounData] = useState([]);
@@ -123,32 +122,35 @@ export const NounsProvider = ({ children }) => {
       }
 
       updateNounData(updatedNounData);
-      clearInterval(fetchInterval); // Stop fetching if all traits are fetched
+      clearInterval(fetchInterval);
     };
 
     const fetchInterval = setInterval(fetchTraitsPeriodically, 5000);
   }, [totalSupply, allTraitsFetched, nounsContractPromise, nounData, updateNounData]);
 
   useEffect(() => {
-    if (!init) {
-      const fetchDataAndTraits = async () => {
-        setTimeout(() => {
-          setLoadingText(
-            <span dangerouslySetInnerHTML={{ __html: 'fetching nouns contract <div class="dots"><span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>' }} />
-          );
-        }, 1000);
+    const fetchDataAndTraits = async () => {
+        try {
 
-        const nounsContract = await nounsContractPromise;
-        const fetchedTotalSupply = await nounsContract.totalSupply();
-        setTotalSupply(fromHex(fetchedTotalSupply['_hex']));
-        setTodayId(fromHex(fetchedTotalSupply['_hex']) - 1)
-        setYesterdayId(fromHex(fetchedTotalSupply['_hex']) - 2)
-      };
+          setTimeout(() => {
+            setLoadingText(
+              <span dangerouslySetInnerHTML={{ __html: 'fetching nouns contract <div class="dots"><span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>' }} />
+            );
+          }, 1000);
 
-      fetchDataAndTraits();
-      setInit(true);
-    }
-  }, [nounsContractPromise, init]);
+            const contractMetadata = await alchemy.nft.getContractMetadata(nounsContractAddress);
+            const fetchedTotalSupply = contractMetadata.totalSupply;
+            
+            setTotalSupply(fetchedTotalSupply);
+            setTodayId(fetchedTotalSupply - 1)
+            setYesterdayId(fetchedTotalSupply - 2)
+        } catch (error) {
+            console.error('Error fetching data and traits:', error);
+        }
+    };
+
+    fetchDataAndTraits();
+}, [nounsContractPromise]);
 
   const [loadingText, setLoadingText] = useState(<span dangerouslySetInnerHTML={{ __html: 'fetching nouns contract <div class="dots"><span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>' }} />);
 

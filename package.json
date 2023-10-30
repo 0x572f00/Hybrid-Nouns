@@ -2,9 +2,6 @@
   "name": "hybrid_nouns",
   "version": "0.0.9",
   "private": true,
-  "resolutions": {
-    "@nouns/sdk@^0.4.0": "patch:@nouns/sdk@npm%3A0.4.0#./.yarn/patches/@nouns-sdk-npm-0.4.0-2c7c7155df.patch"
-  },
   "dependencies": {
     "@babel/plugin-syntax-flow": "^7.22.5",
     "@babel/plugin-transform-react-jsx": "^7.22.5",
@@ -24,11 +21,13 @@
     "@types/three": "^0.155.0",
     "alchemy-sdk": "^2.9.2",
     "darkmode-js": "^1.5.7",
+    "ethers": "^6.8.0",
     "file-saver": "^2.0.5",
     "html-webpack-plugin": "^5.5.3",
-    "ipfs-http-client": "^60.0.1",
     "maath": "^0.7.0",
     "moment": "^2.29.4",
+    "patch-package": "^8.0.0",
+    "postinstall-postinstall": "^2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-reveal": "^1.2.2",
@@ -45,7 +44,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scrSipts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "patch-package"
   },
   "eslintConfig": {
     "extends": [
@@ -67,6 +67,5 @@
   },
   "devDependencies": {
     "webpack-cli": "^5.1.4"
-  },
-  "packageManager": "yarn@3.6.1"
+  }
 }

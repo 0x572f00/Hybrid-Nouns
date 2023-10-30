@@ -10,7 +10,7 @@ import Fade from 'react-reveal/Fade';
 import { componentToHex, rgbToHex, extractColors, png } from './utils/utils.js'
 import { captureScreenshot } from './utils/screenshot.js'
 import TraitsDisplay from './utils/traitsDisplay.js';
-import saveImage from './utils/saveImage.js';
+// import saveImage from './utils/saveImage.js';
 import moment from 'moment';
 import { useNounsContext } from './utils/NounsContext';
 
@@ -38,7 +38,7 @@ const Hybrid = () => {
     console.log(response)
     if (response.status === 200) {
       const filename = `HBN_${i - 1}-${i}`;
-      saveImage(canvasRef, filename);
+      // saveImage(canvasRef, filename);
     }
   };
 
@@ -280,10 +280,8 @@ const Hybrid = () => {
                   ? moment().format('MMMM D, YYYY')
                   : moment().subtract(totalSupply - todayId - 1, 'days').format('MMMM D, YYYY')}
               </div>
-
               <div className='timer-container'>
                 Next Hybrid in <Timer />
-
               </div>
             </div>
           </Fade>
